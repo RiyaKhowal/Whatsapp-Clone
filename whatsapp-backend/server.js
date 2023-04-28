@@ -7,13 +7,20 @@ import cors from "cors"
 //app config
 const app = express();
 const port = process.env.PORT || 9000
-const connectionUrl = "mongodb+srv://root:root@cluster0.qvfum.mongodb.net/whatsappdb?retryWrites=true&w=majority";
+const connectionUrl = "mongodb+srv://Riya:DqbLflj6rGCdTwqV@cluster0.wakyh.mongodb.net/?retryWrites=true&w=majority";
 const pusher = new Pusher({
-    appId: "1183684",
-    key: "bf24836fad5569d93ee1",
-    secret: "564dc13d04bf5fa5f561",
-    cluster: "ap2",
+
+
+    appId: "1519503",
+    key: "adf158c5d5eeb8b2202b",
+    secret: "08f63a45f0aa907fe4fd",
+    cluster: "eu",
     useTLS: true
+
+
+
+
+    
 });
 
 const db = mongoose.connection;
@@ -77,5 +84,9 @@ app.get("/messages/sync", (req, res) => {
     })
 });
 
+
+//if(process.env.NODE_ENV == "production"){
+  //  app.use(express.static("whatsapp-frontend/build"));
+//}
 //listen
 app.listen(port, () => console.log(`Listening to port: ${port}`));
